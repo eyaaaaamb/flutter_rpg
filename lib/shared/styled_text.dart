@@ -20,8 +20,7 @@ class StyledHeading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(text.toUpperCase())
-   ;
+  return Text(text.toUpperCase(), style: TextStyle(fontWeight: FontWeight.bold,color:Colors.white));
   }
 }
 
