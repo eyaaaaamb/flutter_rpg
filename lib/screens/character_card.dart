@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rpg_project/models/character.dart';
+import 'package:rpg_project/screens/profile/profile.dart';
 import 'package:rpg_project/shared/styled_text.dart';
 import 'package:rpg_project/theme.dart';
 
@@ -37,6 +38,9 @@ class CharacterCard extends StatelessWidget {
             IconButton(
               onPressed: () {
                 // navigate to character profile screen
+                  Navigator.push(context,MaterialPageRoute(
+                  builder:(ctx)=>  Profile(character:character),
+                ));
               },
               icon: Icon(Icons.arrow_forward, color: AppColors.textColor)
             ),

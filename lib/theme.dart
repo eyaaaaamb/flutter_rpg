@@ -68,5 +68,10 @@ ThemeData primaryTheme = ThemeData(
   prefixIconColor: AppColors.textColor,
   
  ),
+ dialogTheme: DialogThemeData(
+
+  backgroundColor: AppColors.secondaryAccent,
+              surfaceTintColor: Colors.transparent,
+ ),
 
 );

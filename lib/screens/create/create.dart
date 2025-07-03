@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rpg_project/models/character.dart';
+import 'package:rpg_project/screens/home/home.dart';
 import 'package:uuid/uuid.dart';
 import 'package:rpg_project/models/vocation.dart';
 import 'package:rpg_project/screens/create/vocation_card.dart';
@@ -41,16 +42,48 @@ class _CreateState extends State<Create> {
     //not empty
     if(_nameController.text.trim().isEmpty){
       //show error dialog 
-      return;
+       showDialog(context: context, builder: (ctx){
+            return AlertDialog(
+            
+              title:const StyledHeading("missing name"),
+              content:const StyledText('Every good RPG character needs a great name'),
+              actions: [
+                Styledbtn(onPressed: (){
+                  Navigator.pop(ctx);
+                }, child:StyledHeading('close')),
+              ],
+              actionsAlignment: MainAxisAlignment.center,
+            );
+
+       });
+       return;
     }if(_sloganController.text.trim().isEmpty){
         //show error dialog 
+         showDialog(context: context, builder: (ctx){
+
+            return AlertDialog(
+              
+              title:const StyledHeading("missing Slogan"),
+              content:const StyledText('Every good RPG character needs a great slogan'),
+              actions: [
+                Styledbtn(onPressed: (){
+                  Navigator.pop(ctx);
+                }, child:StyledHeading('close')),
+              ],
+              actionsAlignment: MainAxisAlignment.center,
+            );
+
+       });
+            
+
       return;
+
     }
 
     //add a character to list 
     //trim text
     characters.add(Character(name: _nameController.text.trim(), slogan: _sloganController.text.trim(), vocation: selectedVocation, id: uuid.v4()));
-    
+    Navigator.push(context ,MaterialPageRoute(builder:(ctx)=>  const Home()));
   }
   @override
   Widget build(BuildContext context) {
@@ -124,6 +157,7 @@ class _CreateState extends State<Create> {
                 child:Styledbtn(
                   onPressed: handleSubmit , 
                  child:  const StyledHeading("Create character "),
+
                 )
           
                )

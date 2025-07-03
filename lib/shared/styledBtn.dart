@@ -1,4 +1,3 @@
-//container decoration gradiant
 import 'package:flutter/material.dart';
 import 'package:rpg_project/theme.dart';
 class Styledbtn extends StatelessWidget {

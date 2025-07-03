@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rpg_project/models/character.dart';
 import 'package:rpg_project/screens/character_card.dart';
+import 'package:rpg_project/screens/create/create.dart';
 import 'package:rpg_project/shared/styledBtn.dart';
 import 'package:rpg_project/shared/styled_text.dart';
 
@@ -40,6 +41,9 @@ class _HomeState extends State<Home> {
 (
               onPressed: () {
                 // navigate to the create screen
+                Navigator.push(context,MaterialPageRoute(
+                  builder:(ctx)=> Create(),
+                ));
               },
               child: const StyledHeading('Create New'),
             ),
